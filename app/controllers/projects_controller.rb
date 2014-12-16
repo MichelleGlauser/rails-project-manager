@@ -61,6 +61,12 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def add_task
+    @project = Project.find(params[:id])
+    @project.tasks.create
+    redirect_to(projects_path)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_project

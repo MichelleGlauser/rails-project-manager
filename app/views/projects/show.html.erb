@@ -5,5 +5,29 @@
   <%= @project.name %>
 </p>
 
+
+<h5>Tasks:</h5>
+<% @project.tasks.each do |task| %>
+	<p>
+		<strong>Name:</strong>
+		<%= task.name %>
+	</p>
+	<p>
+		<strong>Description:</strong>
+		<%= task.description %>
+	</p>
+	<p>
+		<strong>Difficulty level:</strong>
+		<%= task.difficulty_level %>
+	</p>
+	<p>
+		<%= link_to 'Edit', edit_project_task_path(@project, task), class: 'btn' %>
+	</p>
+<% end %>
+
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
+
+
+<!-- From the project “show” page, you should be able to see all of the tasks for the project, their difficulty level, and a link to edit each one. 
+ -->
